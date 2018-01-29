@@ -8,8 +8,7 @@ dev:
     - internal/watch:
         code: |
           go build ./...
-          echo "testing"
-          ./wercker-test
+          ./source
         reload: true
 
 # Build definition
@@ -28,7 +27,7 @@ build:
     - script:
         name: copy binary
         code: |
-          cp wercker-test "$WERCKER_OUTPUT_DIR"
+          cp source "$WERCKER_OUTPUT_DIR"
 
     # Test the project
     - script:
@@ -45,4 +44,4 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        cmd: ./wercker-test
+        cmd: ./source
