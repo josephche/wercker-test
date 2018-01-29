@@ -27,7 +27,7 @@ build:
     - script:
         name: copy binary
         code: |
-          cp source "$GOROOT"
+          cp source "/go/bin"
 
     # Test the project
     - script:
@@ -45,4 +45,4 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        cmd: $GOROOT/source
+        cmd: /go/bin/source
