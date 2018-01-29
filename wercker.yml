@@ -51,3 +51,13 @@ push:
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
         cmd: /pipeline/source/source
+
+restart-occs:
+  steps:
+    # Manage Oracle Container Cloud Service container
+    - peternagy/oracle-occs-container-util:
+        occs_user: $OCCS_USER
+        occs_password: $OCCS_PASSWORD
+        rest_server_url: $REST_SERVER_URL
+        function: $FUNCTION
+		deployment_name: $DEPLOYMENT_NAME 
