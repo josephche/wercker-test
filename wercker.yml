@@ -46,5 +46,5 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        entrypoint: $WERCKER_OUTPUT_DIR
+        entrypoint: /pipeline/output/
         cmd: ./source
