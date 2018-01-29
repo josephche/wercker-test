@@ -39,6 +39,7 @@ build:
 
 push:
   steps:
+    # set permissions
     - script:
         name: set chmod +x
         code: chmod 777 /pipeline/source
