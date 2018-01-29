@@ -8,7 +8,7 @@ dev:
     - internal/watch:
         code: |
           go build ./...
-          ./source
+          ./wercker-test
         reload: true
 
 # Build definition
@@ -40,7 +40,7 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        cmd: ./source
+        cmd: ./wercker-test
 deploy-accs:
   steps:
     # Deploy to Oracle Application Container Cloud
