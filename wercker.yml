@@ -28,7 +28,8 @@ build:
         name: copy binary
         code: |
           cp source "$WERCKER_OUTPUT_DIR"
-          cp source "/go/bin"
+          echo $WERCKER_OUTPUT_DIR
+          ls -al $WERCKER_OUTPUT_DIR
 
     # Test the project
     - script:
@@ -46,5 +47,4 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        entrypoint: /pipeline/output/
-        cmd: ./source
+        cmd: /pipeline/output/source
