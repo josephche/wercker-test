@@ -39,9 +39,6 @@ push:
   steps:
     # Push to public docker repo
     - internal/docker-push:
-        username: $DOCKER_USERNAME
-        password: $DOCKER_PASSWORD
-        tag: latest
-        repository: $DOCKER_REPOSITORY
-        registry: https://index.docker.io/v2/
+        ports: "5000"
+        working-dir: "$WERCKER_OUTPUT_DIR"
         cmd: ./source
