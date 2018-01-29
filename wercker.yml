@@ -38,6 +38,7 @@ build:
           go test ./...
 
 push:
+  box: google/golang
   steps:
     # Push to public docker repo
     - internal/docker-push:
@@ -47,4 +48,4 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        cmd: /pipeline/output/source
+        cmd: ./source
