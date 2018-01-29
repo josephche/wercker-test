@@ -25,6 +25,10 @@ build:
         name: go build
         code: |
           go build ./...
+    - script:
+        name: copy binary
+        code: |
+          cp wercker-test "$WERCKER_OUTPUT_DIR"
 
     # Test the project
     - script:
