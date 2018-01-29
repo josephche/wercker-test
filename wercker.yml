@@ -39,7 +39,7 @@ push:
         password: $DOCKER_PASSWORD
         tag: latest
         repository: $DOCKER_REPOSITORY
-        registry: https://index.docker.io/v22/
+        registry: https://index.docker.io/v2/
         cmd: ./source
 deploy-accs:
   steps:
