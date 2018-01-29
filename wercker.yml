@@ -45,4 +45,4 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-#        cmd: ./wercker-test
+        cmd: ./wercker-test
