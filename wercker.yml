@@ -7,8 +7,8 @@ dev:
   steps:
     - internal/watch:
         code: |
-          go build ./...
-          ./source
+          go build -o meetup_example main.go
+          ./meetup_example
         reload: true
 
 # Build definition
@@ -23,13 +23,11 @@ build:
     - script:
         name: go build
         code: |
-          go build ./...
-    - script:
-        name: copy binary
-        code: |
-          cp source "$WERCKER_OUTPUT_DIR"
-          echo $WERCKER_OUTPUT_DIR
-          ls -al $WERCKER_OUTPUT_DIR
+          go build -o meetup_example main.go
+#    - script:
+#        name: copy binary
+#        code: |
+#          cp source "$WERCKER_OUTPUT_DIR"
 
     # Test the project
     - script:
@@ -40,9 +38,9 @@ build:
 push:
   steps:
     # set permissions
-    - script:
-        name: set chmod +x
-        code: chmod 777 /pipeline/source
+#    - script:
+#        name: set chmod +x
+#        code: chmod 777 /pipeline/source
     # Push to public docker repo
     - internal/docker-push:
         ports: "5000"
@@ -51,7 +49,7 @@ push:
         tag: latest
         repository: $DOCKER_REPOSITORY
         registry: https://index.docker.io/v2/
-        cmd: /pipeline/source/source
+        cmd: /pipeline/source/meetup_example
 
 restart-occs:
   steps:
