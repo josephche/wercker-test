@@ -24,10 +24,10 @@ build:
         name: go build
         code: |
           go build -o meetup_example main.go
-    - script:
-        name: copy binary
-        code: |
-          cp meetup_example "$WERCKER_OUTPUT_DIR"
+ #   - script:
+  #      name: copy binary
+   #     code: |
+    #      cp meetup_example "$WERCKER_OUTPUT_DIR"
 
     # Test the project
     - script:
@@ -38,9 +38,9 @@ build:
 push:
   steps:
     # set permissions
-    - script:
-        name: set chmod +x
-        code: chmod 777 /pipeline/source
+#    - script:
+#        name: set chmod +x
+#        code: chmod 777 /pipeline/source
     # Push to public docker repo
     - internal/docker-push:
         ports: "5000"
