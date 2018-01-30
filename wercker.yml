@@ -27,7 +27,7 @@ build:
 #    - script:
 #        name: copy binary
 #        code: |
-#          cp source "$WERCKER_OUTPUT_DIR"
+#          cp meetup_example "$WERCKER_OUTPUT_DIR"
 
     # Test the project
     - script:
