@@ -38,9 +38,9 @@ build:
 push:
   steps:
     # set permissions
-#    - script:
-#        name: set chmod +x
-#        code: chmod 777 /pipeline/source
+    - script:
+        name: set chmod +x
+        code: chmod 777 /pipeline/source
     # Push to public docker repo
     - internal/docker-push:
         ports: "5000"
